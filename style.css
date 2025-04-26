@@ -1,0 +1,245 @@
+body {
+  background-color: #1D242B;
+  font-family: "Mukta", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.navbar {
+  background-color: #1D242B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 20px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px ;
+}
+
+.navbar a,
+.dropbtn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 10px;
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #C7EEFF, #0077C0);
+  transform: scaleX(0);
+  transition: transform 0.4s ease-out;
+}
+
+.hover-underline::after {
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.dropdown {
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: ease-out 0.3s;
+  pointer-events: none;
+  border-radius: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-content a {
+  color: #374151;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  border-radius: 8px;
+}
+
+.image-wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  overflow: hidden;
+  top: 10px;
+}
+
+#lmimage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: brightness(80%) contrast(90%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.captionlm {
+  display: flex;
+  position: absolute;
+  bottom: 170px; 
+  right: 10px;
+  color: #e1e6e2;
+  font-size: 16px;
+  padding: 5px;
+  user-select: none;
+}
+
+.caption1 {
+  display: inline;
+  position: absolute;
+  top: 500px;
+  left: 100px;
+  color: white;
+  font-size: 50px;
+  user-select: none;
+}
+
+.caption1 h6 {
+  display: inline;
+  position: absolute;
+  top: 100px;
+  color: white;
+  font-size: 30px;
+  user-select: none;
+  opacity: 0;
+  animation: fadeIn 4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid white;
+  letter-spacing: .09em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+  width: 100%;
+  max-width: 2500px; 
+  margin: 0 auto; 
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  gap: 100px;
+  margin: 30px;
+}
+.card-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  perspective: 1000px;
+  display: flex;
+  margin: 0;
+}
+.card-wrapper.float-left {
+  margin-right: auto;
+}
+.card-wrapper.float-right {
+  margin-left: auto;
+}
+.card-content {
+  background: rgba(22, 28, 36, 0.9);
+  padding: 30px;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+  color: #ffffff;
+}
+.card-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #C7EEFF;
+}
+.card-content p,
+.card-content ul {
+  line-height: 1.6;
+}
+.card-content a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(15px); }
+  100% { transform: translateY(0px); }
+}
+@media (max-width: 600px) {
+  .card-content h2 { font-size: 1.5rem; }
+  .card-content { padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  .captionlm {
+    font-size: 12px;
+    bottom: 170px;
+    right: 5px;
+  }
+
+  .caption1 {
+    font-size: 30px;
+    top: 40%;
+    left: 5%;
+  }
+}
